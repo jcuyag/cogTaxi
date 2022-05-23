@@ -1,0 +1,8 @@
+# Compiled Python bytecode
+*.py[cod]
+*.pyc
+
+# sqlite3 test database
+*.sqlite3
+
+
