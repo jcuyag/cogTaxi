@@ -5,7 +5,7 @@ class RideSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ride
         fields = "__all__"
-        depth = 2
+        depth = 1
 
 
 class RideDetialSerializer(serializers.ModelSerializer):
