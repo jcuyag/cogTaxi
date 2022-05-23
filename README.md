@@ -7,6 +7,14 @@ Clone this project and install the requirements.txt via pip command.
     
     pip install -r requirements.txt
 
+Run migration. 
+
+    ./manage.py makemigrations
+    ./manage.py migrate
+
+Start the server.
+
+    ./manage.py runserver
 
 Install HTTPie command-line HTTP client tool for testing the API via CLI interaction
 
