@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from pprint import pprint
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -37,7 +36,6 @@ class RideDetailList(APIView):
         driver = request.user
         if serializer.is_valid():
             serializer.validated_data['driver'] = driver
-            pprint(serializer.validated_data)
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
