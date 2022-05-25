@@ -32,14 +32,26 @@ Registered drivers in the deployed server credentials.
     driver2:Sd9cCRcGhLuT2yQ
 
 
-Create new booking request for registered driver (POST)
+Populate database with NEW request using admin account. Execute this line multiple times as needed.
     
-    http POST "165.22.101.120:8000/rides/driver/" "first_name"="Firstname" "last_name"="Lastname" "destination"="USA" "remarks"="good" "status"="new" "user_id"="0000driver2"  -a  driver1:Sd9cCRcGhLuT2yQ
+    http POST "http://165.22.101.120:8000/rides/admin/" "first_name"="Firstname" "last_name"="Lastname" "destination"="USA" "remarks"="good" "status"="new" "user_id"="00001"  -a  admin:admin
 
-Get all bookings with NEW status from registered driver (GET)
-
-    http GET "165.22.101.120:8000/rides/driver/" -a driver1:Sd9cCRcGhLuT2yQ
 
 Get all bookings by an ADMIN
 
-    http GET "165.22.101.120:8000/rides/admin/" -a admin:admin
+    http GET "http://165.22.101.120:8000/rides/" -a admin:admin
+
+
+Get all bookings with NEW status from a registered driver. And select the request ID.
+
+    http GET "http://165.22.101.120:8000/rides/" -a driver1:Sd9cCRcGhLuT2yQ
+
+
+After getting the request ID to book. Use PUT method to update the status.
+
+    http PUT "http://165.22.101.120:8000/rides/<ID>/" "status=booked" -a driver1:Sd9cCRcGhLuT2yQ
+
+
+Get all Booked requests from a registered driver. (including DONE status)
+
+    http GET "http://165.22.101.120:8000/rides/mybookings/" -a driver1:Sd9cCRcGhLuT2yQ
