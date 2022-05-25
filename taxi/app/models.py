@@ -10,7 +10,7 @@ STATUS = [
 ]
 
 class Ride(models.Model):
-    driver = models.ForeignKey(User, on_delete=models.CASCADE)
+    driver = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     user_id =  models.CharField(max_length=255)
     first_name = models.CharField(max_length=255) 
     last_name = models.CharField(max_length=255) 

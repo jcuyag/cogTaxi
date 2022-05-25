@@ -7,7 +7,7 @@ class RideSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class RideDetialSerializer(serializers.ModelSerializer):
+class RideDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ride
         fields = [
@@ -18,4 +18,14 @@ class RideDetialSerializer(serializers.ModelSerializer):
             "destination",
             "remarks",
             "status",
+            "driver"
         ]
+        
+
+class DriverUpdateSerialzier(serializers.ModelSerializer):
+    class Meta:
+        model = Ride
+        fields = [
+            "status"
+        ]
+    

@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app.views import RideList, RideDetailList
+from app.views import NewRideList, RideDetailList, DriverBookingList, AdminBookingList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('rides/admin/', RideList.as_view()),
-    path('rides/driver/', RideDetailList.as_view())
+    path('rides/', NewRideList.as_view()),
+    path('rides/<int:pk>/', RideDetailList.as_view()),
+    path('rides/mybookings/', DriverBookingList().as_view()),
+    path('rides/admin/', AdminBookingList().as_view()),
 ]

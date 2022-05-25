@@ -4,4 +4,11 @@ from .models import Ride
 
 @admin.register(Ride)
 class RideAdmin(admin.ModelAdmin):
-    list_display = ("user_id", "first_name", "last_name", "destination", "ride_dt", "remarks", "status")
+    list_display = ("driver",
+                    "status",
+                    "user_id", 
+                    "first_name", 
+                    "last_name", 
+                    "destination", 
+                    "ride_dt", 
+                    "remarks",)
